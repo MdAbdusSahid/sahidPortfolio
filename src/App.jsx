@@ -28,35 +28,52 @@ const PROJECTS = [
 const SKILLS = [
   {
     title: "Languages",
-    items: ["JavaScript (ES6+)", "HTML5", "CSS3", "Java", "OOP"],
+    items: ["JavaScript (ES6+)", "TypeScript", "HTML5", "CSS3", "SQL"],
   },
   {
-    title: "Frameworks",
-    items: ["React", "React Router", "Hooks", "Suspense", "Error Boundaries"],
+    title: "Frameworks & Libraries",
+    items: ["React", "React Router", "Redux"],
   },
   {
-    title: "AI Tools",
+    title: "React Expertise",
     items: [
-      "Prompt Engineering",
-      "Claude",
-      "ChatGPT",
-      "Copilot",
-      "Copilot CLI",
+      "Hooks",
+      "Context API",
+      "Custom Hooks",
+      "Error Boundaries",
+      "Lazy Loading",
     ],
   },
   {
-    title: "Dev Tools",
-    items: ["Git & GitHub", "Postman", "Swagger", "VS Code"],
+    title: "Backend & Database",
+    items: ["REST APIs", "AWS Lambda", "MongoDB", "PostgreSQL"],
   },
-  { title: "Methodologies", items: ["Agile (Scrum)", "TDD"] },
   {
-    title: "Core",
+    title: "Dev Tools",
+    items: ["Git & GitHub", "VS Code", "Postman", "Chrome DevTools", "NPM"],
+  },
+  {
+    title: "AI & Productivity",
+    items: [
+      "Prompt Engineering",
+      "Claude",
+      "GitHub Copilot",
+      "ChatGPT",
+      "Cursor",
+    ],
+  },
+  {
+    title: "Methodologies",
+    items: ["Agile (Scrum)", "TDD", "CI/CD", "Code Review", "Pair Programming"],
+  },
+  {
+    title: "Core Competencies",
     items: [
       "State Management",
       "API Integration",
-      "UI Debugging",
-      "Performance",
+      "Performance Optimization",
       "Responsive Design",
+      "Debugging",
     ],
   },
 ];
@@ -169,11 +186,11 @@ function App() {
         <section id="home" className="hero">
           <div className="hero-text">
             <h1 className="hero-title">
-              Md Abdus Sahid is a{" "}
+              Hi, I'm Md Abdus Sahid, a{" "}
               <span className="accent">React Developer</span>
             </h1>
             <p className="hero-desc">
-              He crafts scalable, responsive, and user-centric web applications
+              I craft scalable, responsive, and user-centric web applications
               with modern React — specialized in UI optimization, API
               integration, and Agile development.
             </p>
@@ -206,15 +223,14 @@ function App() {
           </div>
         </section>
 
-        {/* Quote */}
+        {/* Expertise Banner */}
         <section className="quote-block">
-          <div className="quote-mark">“</div>
+          <div className="quote-mark">✦</div>
           <blockquote>
-            Code is like humor. When you have to explain it, it's bad.
+            Building scalable React applications with modern architecture, clean
+            code, and user-first design principles.
           </blockquote>
-          <div className="quote-author">
-            <span />5 Years of Experience
-          </div>
+          <div className="quote-author">5 Years · Enterprise Experience</div>
         </section>
 
         {/* Projects */}
@@ -267,20 +283,24 @@ function App() {
           <div className="about-layout">
             <div className="about-text">
               <p>
-                Hello, I'm Md Abdus Sahid — a React Developer with 5 years of
-                hands-on experience building scalable, responsive, and
-                user-centric web applications.
+                I'm a results-driven React Developer with 5 years of
+                professional experience delivering enterprise-grade web
+                applications. My focus lies in building scalable, maintainable
+                solutions that balance technical excellence with exceptional
+                user experience.
               </p>
               <p>
-                I specialize in modern React (Hooks, Functional Components,
-                State Management) with strong expertise in UI optimization, API
-                integration, and Agile development. At Capgemini India I work
-                for Reinsurance Group of America (RGA) on the RGA Nexus
-                platform.
+                Currently at Capgemini India, I architect and develop features
+                for RGA Nexus—a comprehensive reinsurance platform serving
+                Reinsurance Group of America. My expertise spans the full
+                development lifecycle, from component design and state
+                management to API integration and performance optimization. I
+                thrive in Agile environments and am passionate about writing
+                clean, testable code.
               </p>
               <p>
-                B.Tech in Computer Science &amp; Engineering (2020). I speak{" "}
-                {LANGUAGES.join(", ")}.
+                B.Tech in Computer Science &amp; Engineering (2020) · Fluent in{" "}
+                {LANGUAGES.join(", ")}
               </p>
 
               <div className="about-sub">
