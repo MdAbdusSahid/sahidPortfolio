@@ -106,6 +106,7 @@ function SectionHeading({ id, title }) {
 function App() {
   const [active, setActive] = useState("home");
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
   const [theme, setTheme] = useState(
     () => localStorage.getItem("theme") || "dark",
   );
@@ -114,6 +115,14 @@ function App() {
     document.documentElement.dataset.theme = theme;
     localStorage.setItem("theme", theme);
   }, [theme]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.pageYOffset > 300);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     const sections = NAV.map((n) => document.getElementById(n.id)).filter(
@@ -133,10 +142,19 @@ function App() {
 
   const go = (id) => {
     setMenuOpen(false);
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    const element = document.getElementById(id);
+    if (element) {
+      const yOffset = -70;
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
   };
 
   const toggleTheme = () => setTheme((t) => (t === "dark" ? "light" : "dark"));
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <div className="page">
@@ -408,6 +426,18 @@ function App() {
           © {new Date().getFullYear()} Md Abdus Sahid — Built with React
         </p>
       </footer>
+
+      {/* Scroll to Top Button */}
+      {showScrollTop && (
+        <button
+          type="button"
+          className="scroll-to-top"
+          onClick={scrollToTop}
+          aria-label="Scroll to top"
+        >
+          ↑
+        </button>
+      )}
     </div>
   );
 }
