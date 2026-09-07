@@ -6,6 +6,7 @@ const NAV = [
   { id: "home", label: "home" },
   { id: "works", label: "works" },
   { id: "skills", label: "skills" },
+  { id: "certificates", label: "certificates" },
   { id: "about", label: "about-me" },
   { id: "contacts", label: "contacts" },
 ];
@@ -78,6 +79,17 @@ const SKILLS = [
   },
 ];
 
+const CERTIFICATES = [
+  {
+    name: "Claude Certified Developer",
+    issuer: "Anthropic",
+    track: "Foundations",
+    year: "2026",
+    file: "/certificates/claude-certified-developer-foundations.pdf",
+  },
+  // Add more certificates here — just follow the same shape.
+];
+
 const ACHIEVEMENTS = [
   "STAR Award",
   "WOW Team Excellence Award",
@@ -100,6 +112,35 @@ function SectionHeading({ id, title }) {
       {title}
       <span className="heading-line" />
     </h2>
+  );
+}
+
+function CertificateCard({ cert }) {
+  const { name, issuer, track, year, file } = cert;
+  return (
+    <article className="cert-card">
+      <div className="cert-thumb">
+        <span className="cert-badge">✦</span>
+        {track && <span className="cert-track">{track}</span>}
+      </div>
+      <div className="cert-body">
+        <h3>{name}</h3>
+        <p className="cert-issuer">{issuer}</p>
+        <div className="cert-meta">
+          {year && <span className="cert-year">{year}</span>}
+          {file && (
+            <a
+              className="cert-link"
+              href={file}
+              target="_blank"
+              rel="noreferrer"
+            >
+              View certificate →
+            </a>
+          )}
+        </div>
+      </div>
+    </article>
   );
 }
 
@@ -145,7 +186,8 @@ function App() {
     const element = document.getElementById(id);
     if (element) {
       const yOffset = -70;
-      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      const y =
+        element.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: "smooth" });
     }
   };
@@ -292,6 +334,16 @@ function App() {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* Certificates */}
+        <section className="section">
+          <SectionHeading id="certificates" title="certificates" />
+          <div className="cert-grid">
+            {CERTIFICATES.map((cert) => (
+              <CertificateCard key={cert.name + cert.track} cert={cert} />
+            ))}
           </div>
         </section>
 
