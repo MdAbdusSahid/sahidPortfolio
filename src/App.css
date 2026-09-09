@@ -574,12 +574,27 @@ a {
 }
 
 .cert-thumb {
-  height: 130px;
+  height: 340px;
   position: relative;
   display: grid;
   place-items: center;
   background: linear-gradient(135deg, rgba(199, 120, 221, 0.18), rgba(96, 123, 150, 0.12));
   border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.cert-viewer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: var(--panel);
+}
+
+.cert-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
 }
 
 .cert-badge {
@@ -928,6 +943,115 @@ a {
   transform: translateY(-2px);
 }
 
+/* ---------- Resume Section ---------- */
+.resume-container {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.resume-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.resume-lead {
+  flex: 1;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  min-width: 280px;
+}
+
+.btn-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  background: var(--accent);
+  color: var(--bg);
+  border: 1px solid var(--accent);
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+}
+
+.btn-download:hover {
+  background: transparent;
+  color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(199, 120, 221, 0.3);
+}
+
+.download-icon {
+  font-size: 18px;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.btn-download:hover .download-icon {
+  transform: translateY(3px);
+}
+
+.resume-viewer {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.resume-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* ---------- Clickable preview overlay (cert + resume) ---------- */
+/* Overlay itself does NOT capture pointer events, so scrolling/interacting
+   with the PDF iframe works. Only the hint pill is clickable. */
+.viewer-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 12px;
+  text-decoration: none;
+  pointer-events: none;
+}
+
+.viewer-overlay-hint {
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  background: var(--accent);
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  pointer-events: auto;
+  opacity: 0.9;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.viewer-overlay-hint:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
 /* ---------- Responsive ---------- */
 
 @keyframes slideInDown {
@@ -1045,6 +1169,19 @@ a {
     height: 44px;
   }
 
+  .resume-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .resume-lead {
+    min-width: auto;
+  }
+
+  .resume-viewer {
+    height: 500px;
+  }
+
   /* Reduce animation complexity on mobile for performance */
   .project-card:hover {
     transform: translateY(-4px);
@@ -1089,6 +1226,10 @@ a {
 
   .footer {
     padding: 32px 22px 24px;
+  }
+
+  .resume-viewer {
+    height: 450px;
   }
 }
 
@@ -1148,6 +1289,15 @@ a {
     width: 40px;
     height: 40px;
     font-size: 18px;
+  }
+
+  .resume-viewer {
+    height: 380px;
+  }
+
+  .btn-download {
+    width: 100%;
+    justify-content: center;
   }
 }
 

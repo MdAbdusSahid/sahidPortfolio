@@ -7,6 +7,7 @@ const NAV = [
   { id: "works", label: "works" },
   { id: "skills", label: "skills" },
   { id: "certificates", label: "certificates" },
+  { id: "resume", label: "resume" },
   { id: "about", label: "about-me" },
   { id: "contacts", label: "contacts" },
 ];
@@ -120,7 +121,26 @@ function CertificateCard({ cert }) {
   return (
     <article className="cert-card">
       <div className="cert-thumb">
-        <span className="cert-badge">✦</span>
+        {file ? (
+          <div className="cert-viewer">
+            <iframe
+              src={`${file}#toolbar=0&navpanes=0&view=FitH`}
+              title={name}
+              className="cert-iframe"
+            />
+            <a
+              href={file}
+              target="_blank"
+              rel="noreferrer"
+              className="viewer-overlay"
+              aria-label={`Open ${name} in new tab`}
+            >
+              <span className="viewer-overlay-hint">Open in New Tab →</span>
+            </a>
+          </div>
+        ) : (
+          <span className="cert-badge">✦</span>
+        )}
         {track && <span className="cert-track">{track}</span>}
       </div>
       <div className="cert-body">
@@ -344,6 +364,42 @@ function App() {
             {CERTIFICATES.map((cert) => (
               <CertificateCard key={cert.name + cert.track} cert={cert} />
             ))}
+          </div>
+        </section>
+
+        {/* Resume */}
+        <section className="section">
+          <SectionHeading id="resume" title="resume" />
+          <div className="resume-container">
+            <div className="resume-header">
+              <p className="resume-lead">
+                View my complete professional resume below or download it for
+                offline access.
+              </p>
+              <a
+                href="/sahid-resume.pdf"
+                download="sahid-resume.pdf"
+                className="btn-download"
+              >
+                <span className="download-icon">↓</span> Download Resume
+              </a>
+            </div>
+            <div className="resume-viewer">
+              <iframe
+                src="/sahid-resume.pdf"
+                title="Sahid Resume"
+                className="resume-iframe"
+              />
+              <a
+                href="/sahid-resume.pdf"
+                target="_blank"
+                rel="noreferrer"
+                className="viewer-overlay"
+                aria-label="Open resume in new tab"
+              >
+                <span className="viewer-overlay-hint">Open in New Tab →</span>
+              </a>
+            </div>
           </div>
         </section>
 
