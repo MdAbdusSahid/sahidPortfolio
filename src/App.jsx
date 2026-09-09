@@ -88,6 +88,13 @@ const CERTIFICATES = [
     year: "2026",
     file: "/certificates/claude-certified-developer-foundations.pdf",
   },
+  {
+    name: "Claude Certified Associate",
+    issuer: "Anthropic",
+    track: "Foundations",
+    year: "2026",
+    file: "/certificates/claude-certified-associate-foundations.pdf",
+  },
   // Add more certificates here — just follow the same shape.
 ];
 
