@@ -416,13 +416,12 @@ function App() {
                 user experience.
               </p>
               <p>
-                Currently at Capgemini India, I architect and develop features
-                for RGA Nexus—a comprehensive reinsurance platform serving
-                Reinsurance Group of America. My expertise spans the full
-                development lifecycle, from component design and state
-                management to API integration and performance optimization. I
-                thrive in Agile environments and am passionate about writing
-                clean, testable code.
+                Currently at Capgemini India, I develop features for RGA Nexus—a
+                comprehensive reinsurance platform serving Reinsurance Group of
+                America. My expertise spans the full development lifecycle, from
+                component design and state management to API integration and
+                performance optimization. I thrive in Agile environments and am
+                passionate about writing clean, testable code.
               </p>
               <p>
                 B.Tech in Computer Science &amp; Engineering (2020) · Fluent in{" "}
