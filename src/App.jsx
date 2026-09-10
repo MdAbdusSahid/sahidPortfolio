@@ -456,16 +456,6 @@ function App() {
               </div>
             </div>
 
-            <div className="about-visual">
-              <div className="portrait alt">
-                <img
-                  className="portrait-img"
-                  src={sahidImg}
-                  alt="Md Abdus Sahid"
-                />
-                <span className="dots dots-br" />
-              </div>
-            </div>
           </div>
         </section>
 
