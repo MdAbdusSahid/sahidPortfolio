@@ -486,7 +486,7 @@ function App() {
                 <span className="c-icon">☎</span> +91 75850 44149
               </a>
               <a
-                href="https://www.linkedin.com/"
+                href="https://www.linkedin.com/in/officailsahid/"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -526,7 +526,7 @@ function App() {
           <div className="footer-links">
             <h4>Media</h4>
             <a
-              href="https://www.linkedin.com/"
+              href="https://www.linkedin.com/in/officailsahid/"
               target="_blank"
               rel="noreferrer"
             >
